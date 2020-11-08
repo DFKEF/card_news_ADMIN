@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">esanadmin</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="sign">이메일 주소를 정확히 입력해 주세요.\n최초 로그인 시 인증 절차가 있습니다.</string>
+    <string name="email">가입하신 이메일로 인증 코드를 보내드렸습니다.\n 혹시 보이지 않으신다면 스팸함을 확인하여 주십시오.</string>
+
+    <string name="Lorem_Ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus finibus tortor, eu sodales mauris porta vel. Praesent a quam ultrices, tempor quam ut, posuere nulla. Donec vulputate pulvinar odio in porta. Duis at enim vel magna tincidunt mollis. In hac habitasse platea dictumst. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi ac enim ut ligula aliquam volutpat quis at eros. Suspendisse ut feugiat ante. Sed non ex faucibus risus euismod pulvinar vitae ut purus. Ut consequat, metus at tempor eleifend, felis odio porta sapien, nec gravida magna mauris non ex. Aenean nisl eros, euismod sit amet rutrum sit amet, suscipit id augue. Pellentesque quis dui in nulla mattis facilisis non at nisl. Donec et commodo sapien, non laoreet arcu. Phasellus imperdiet urna vitae libero dictum, eu volutpat risus egestas. Donec non tempor nisi. Morbi vitae nisl eleifend, efficitur nisi nec, fringilla lectus.
+
+Nam risus mi, bibendum in tempus in, euismod et risus. Aliquam at felis porta, ultricies urna id, rhoncus magna. Nunc venenatis risus at ipsum porttitor tempus. Donec sit amet nunc risus. Pellentesque sollicitudin scelerisque ultricies. Praesent faucibus nibh purus, eget porta justo accumsan ut. Nulla molestie ornare metus, eget pharetra ipsum imperdiet a.
+
+Sed imperdiet libero quam, a iaculis ex sagittis ut. Integer metus urna, ornare eget posuere sed, tincidunt ac lectus. Maecenas et gravida odio. Nullam sagittis commodo rutrum. Aenean sapien orci, malesuada eu convallis ut, molestie interdum leo. Suspendisse non imperdiet purus, dignissim ultricies justo. Donec accumsan consectetur velit. Vivamus rhoncus elit massa, eget tincidunt felis viverra eu.
+
+Phasellus tempor nibh odio, at hendrerit nibh interdum et. Cras tellus quam, feugiat non ultricies pellentesque, bibendum sed leo. Sed eu sem nec ipsum faucibus lacinia. Curabitur ut cursus ante. Morbi at elementum sem. Nam ligula metus, eleifend sit amet dui non, eleifend suscipit nibh. Vestibulum viverra vestibulum arcu et porttitor.
+
+Aenean consectetur ante a felis tempor, vitae semper mauris bibendum. Morbi urna felis, aliquet sed convallis quis, tincidunt ac massa. Sed sodales elit a orci semper, ac elementum nisl mattis. Duis lectus odio, consectetur a porttitor in, maximus sit amet velit. Ut vitae sagittis urna. Integer sit amet commodo magna. Proin aliquet semper ex. Fusce vel sollicitudin libero, a rhoncus felis. Mauris ullamcorper dolor vel ex congue tincidunt. Nulla facilisi. Sed ac quam et tortor vulputate ultrices sit amet vel mauris. Suspendisse at fringilla erat.</string>
+
+</resources>
