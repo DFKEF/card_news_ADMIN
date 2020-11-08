@@ -22,7 +22,7 @@ public class ImageRecycler extends RecyclerView.Adapter<ImageRecycler.ViewHolder
     private ArrayList<String> bitmaplist = new ArrayList<>();
     private ArrayList<Item>  list = new ArrayList<Item>();
     private int pos;
-    private String url = "http://192.168.2.2/";
+    private String url = "http://13.209.232.72/";
     RequestManager mRequestManager;
     String num;
     public ImageRecycler(Context context, ArrayList<String> bitmaplist, ArrayList<Item> list) {

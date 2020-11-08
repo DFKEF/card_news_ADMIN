@@ -38,7 +38,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public final String PREFERENCE = "userinfo";
-    String home = "http://192.168.2.2/";
+    String home = "http://13.209.232.72/";
 
     String user,bitmap,title,date, teacher, subject,content,getid, name;
     ArrayList<Item> list = new ArrayList<>();
@@ -110,8 +110,6 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-        }else if(id == R.id.verify) {
-
         }
 
         return super.onOptionsItemSelected(item);

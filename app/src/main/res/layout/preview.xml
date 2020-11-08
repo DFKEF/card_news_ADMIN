@@ -15,14 +15,27 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/content_subject"
-                android:text="과학 | 2020-09-14"
-                android:layout_gravity="start"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/content_subject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="과학 | 2020-09-14" />
+
+                <Button
+                    android:id="@+id/apply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="승인"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="10dp"/>
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/content_title"

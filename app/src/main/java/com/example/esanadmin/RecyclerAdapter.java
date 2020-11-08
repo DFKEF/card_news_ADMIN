@@ -48,7 +48,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         String url = list.get(position).bitmap;
         final ArrayList<Item> samplelist = new ArrayList<>();
-        String home = "http://192.168.2.2/";
+        String home = "http://13.209.232.72/";
 
         Glide.with(context)
                 .load(url)

@@ -39,7 +39,7 @@ import java.util.regex.Pattern;
 public class SignupActivity extends AppCompatActivity {
     String sId,sPw, sPw_chk,sName, sEmail,subject;
     EditText et_id, et_pw, et_pw_chk,et_email, et_name;
-    String url = "http://192.168.2.2/";
+    String url = "http://13.209.232.72/";
     Context context;
     int serverResponseCode = 0;
     private static final int PICK_FROM_ALBUM = 1;
