@@ -118,6 +118,34 @@ public class Preview extends AppCompatActivity {
                 alertDialog.show();
             }
         });
+
+        Button delete = (Button)findViewById(R.id.delete);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {AlertDialog.Builder builder = new AlertDialog.Builder(Preview.this);
+
+                builder.setTitle("검토").setMessage("정말 삭제하시겠습니까?");
+
+                builder.setPositiveButton("네", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        Delete setD = new Delete();
+                        setD.execute();
+                    }
+                });
+
+                builder.setNegativeButton("아니요", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        Toast.makeText(getApplicationContext(), "취소되었습니다.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
+            }
+        });
     }
 
 
@@ -170,6 +198,85 @@ public class Preview extends AppCompatActivity {
                 // 서버연결
                 URL home = new URL(url
                         +"article_verify.php");
+                HttpURLConnection conn = (HttpURLConnection) home.openConnection();
+                conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                conn.setRequestMethod("POST");
+                conn.setDoInput(true);
+                conn.connect();
+
+                // 안드로이드 -> 서버 파라메터값 전달
+                OutputStream outs = conn.getOutputStream();
+                outs.write(param.getBytes("UTF-8"));
+                outs.flush();
+                outs.close();
+
+                // 서버 -> 안드로이드 파라메터값 전달
+                InputStream is = null;
+                BufferedReader in = null;
+                String data = "";
+
+                is = conn.getInputStream();
+                in = new BufferedReader(new InputStreamReader(is), 8 * 1024);
+                String line = null;
+                StringBuffer buff = new StringBuffer();
+                while ( ( line = in.readLine() ) != null )
+                {
+                    buff.append(line + "\n");
+                }
+                data = buff.toString().trim();
+                Log.e("RECV DATA",data);
+
+
+                if(data.equals("0000")) {
+                    Log.e("RESULT","성공적으로 처리되었습니다!");
+                    finishcode = 9;
+                }
+                else {
+                    Log.e("RESULT","에러우 발생! ERRCODE = " + data);
+                    finishcode = 0;
+                }
+
+
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            return finishcode;
+        }
+
+        @Override
+        protected void onPostExecute(Integer finishcode) {
+            if(finishcode==9) {
+                Toast.makeText(getApplicationContext(),"정상적으로 처리되었습니다!",Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(getApplicationContext(),"오류가 발생했습니다!\n계속 발생한다면 개발자에게 문의해주세요.",Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    public class Delete extends AsyncTask<Void, Integer, Integer > {
+
+        String data = "";
+        String sId;
+        String imgurl;
+        int finishcode = 0;
+
+        public Delete() {
+        }
+        @Override
+        protected Integer  doInBackground(Void... unused) {
+            //인풋 파라메터값 생성
+
+            imgurl = list.get(0).bitmap.replaceAll("http://13.209.232.72/cards/","");
+            String param = "id=" + list.get(0).getid+ "&bitmap=" + imgurl;
+            Log.e("봐봐",param);
+            try {
+                // 서버연결
+                URL home = new URL(url
+                        +"article_delete.php");
                 HttpURLConnection conn = (HttpURLConnection) home.openConnection();
                 conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                 conn.setRequestMethod("POST");
