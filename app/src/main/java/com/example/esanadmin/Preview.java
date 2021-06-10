@@ -36,7 +36,7 @@ import java.util.ArrayList;
 public class Preview extends AppCompatActivity {
     RecyclerView recyclerView;
     Context context;
-    String url = "http://13.209.232.72/";
+    String url = "http://35.234.10.58/";
     ArrayList<String> bitmaplist = new ArrayList<>();
     ArrayList<Item> list = new ArrayList<>();
     String bitmaprow, bitmap;
@@ -191,7 +191,7 @@ public class Preview extends AppCompatActivity {
         protected Integer  doInBackground(Void... unused) {
             //인풋 파라메터값 생성
 
-            imgurl = list.get(0).bitmap.replaceAll("http://13.209.232.72/cards/","");
+            imgurl = list.get(0).bitmap.replaceAll("http://35.234.10.58/cards/","");
             String param = "id=" + list.get(0).getid+ "&bitmap=" + imgurl;
             Log.e("봐봐",param);
             try {
@@ -270,7 +270,7 @@ public class Preview extends AppCompatActivity {
         protected Integer  doInBackground(Void... unused) {
             //인풋 파라메터값 생성
 
-            imgurl = list.get(0).bitmap.replaceAll("http://13.209.232.72/cards/","");
+            imgurl = list.get(0).bitmap.replaceAll("http://35.234.10.58/cards/","");
             String param = "id=" + list.get(0).getid+ "&bitmap=" + imgurl;
             Log.e("봐봐",param);
             try {

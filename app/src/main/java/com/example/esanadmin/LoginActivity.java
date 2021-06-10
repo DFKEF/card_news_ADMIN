@@ -31,7 +31,7 @@ import java.util.Random;
 
 public class LoginActivity extends AppCompatActivity {
     String sId, sPw, lock_pw;
-    String home = "http://13.209.232.72/";
+    String home = "http://35.234.10.58/";
     public final String PREFERENCE = "userinfo";
     ArrayList<Integer> request = new ArrayList<>();
 

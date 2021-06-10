@@ -8,6 +8,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -39,7 +41,7 @@ import java.util.regex.Pattern;
 public class SignupActivity extends AppCompatActivity {
     String sId,sPw, sPw_chk,sName, sEmail,subject;
     EditText et_id, et_pw, et_pw_chk,et_email, et_name;
-    String url = "http://13.209.232.72/";
+    String url = "http://35.234.10.58/";
     Context context;
     int serverResponseCode = 0;
     private static final int PICK_FROM_ALBUM = 1;
@@ -113,23 +115,47 @@ public class SignupActivity extends AppCompatActivity {
                 sPw_chk = et_pw_chk.getText().toString();
                 sEmail = et_email.getText().toString();
                 sName = et_name.getText().toString();
-
+                Handler handler = new Handler(Looper.getMainLooper());
 
 
                 if (sId.isEmpty() || sPw.isEmpty() || sEmail.isEmpty() || sName.isEmpty()) {
-                    Toast.makeText(context, "모든 정보를 입력해주세요", Toast.LENGTH_LONG).show();
+
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(context, "모든 정보를 입력해주세요", Toast.LENGTH_LONG).show();
+                        }
+                    });
+
 
                 } else {
                     if (sPw.equals(sPw_chk)) {
                         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(sEmail).matches()) {
-                            Toast.makeText(SignupActivity.this, "이메일 형식이 아닙니다", Toast.LENGTH_SHORT).show();
+                            handler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(SignupActivity.this, "이메일 형식이 아닙니다", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
                         } else {
 
-                                if (sId.trim().length() < 5) {
-                                    Toast.makeText(SignupActivity.this, "아이디는 최소 5자 이상이어야 합니다.", Toast.LENGTH_SHORT).show();
+                            if (sId.trim().length() < 5) {
+                                handler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(SignupActivity.this, "아이디는 최소 5자 이상이어야 합니다.", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
                                 } else {
                                     if (!Pattern.matches("^[a-zA-Z0-9!@.#$%^&*?_~]{4,16}$", sPw)) {
-                                        Toast.makeText(SignupActivity.this, "비밀번호 형식을 지켜주세요.", Toast.LENGTH_SHORT).show();
+                                        handler.post(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Toast.makeText(SignupActivity.this, "비밀번호 형식을 지켜주세요.", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
                                     } else {
                                         if(file.isEmpty()) {
                                             registDB registDB = new registDB(sId, sPw, sEmail, sName, context,subject);
@@ -150,7 +176,12 @@ public class SignupActivity extends AppCompatActivity {
 
 
                     } else {
-                        Toast.makeText(context, "패스워드가 일치하지 않습니다", Toast.LENGTH_LONG).show();
+                        handler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(context, "패스워드가 일치하지 않습니다", Toast.LENGTH_LONG).show();
+                            }
+                        });
 
                     }
                 }

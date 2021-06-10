@@ -48,7 +48,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public final String PREFERENCE = "userinfo";
-    String home = "http://13.209.232.72/";
+    String home = "http://35.234.10.58/";
 
     String user,bitmap,title,date, teacher, subject,content,getid, name;
     ArrayList<Item> list = new ArrayList<>();
